@@ -1,0 +1,30 @@
+/* IN INSERTION SORT WE MOVE THE CURRENT ELEMENT TO ITS CORRECT POISTION  BY CHECKING ITS LEFT SIDE ELMENTS
+ * TILL IT IS GREATER THAN ITS LEFT
+ * WORST TIME COMPLEXITY=N2
+ * AVERAGE TIME COMPLEXITY =N2
+ * BEST CASE COMPLEXITY =N;
+ */
+public class MyInsertionSort {
+
+	public  static void is(int[] arr) {
+		for(int i=0;i<arr.length;i++) {
+			int j=i;
+			while(j>0 && arr[j]<arr[j-1]) {
+			 int temp=arr[j];
+			 arr[j]=arr[j-1];
+			 arr[j-1]=temp;
+			 j--;
+			}
+		}
+	}
+	
+	public static void main(String[] args) {
+		 int[] arr= {99,4,6,3,1,2,88};
+	       is(arr);
+	       for(int t:arr) {
+	    	   System.out.println(t);
+     }
+
+	}
+
+}
