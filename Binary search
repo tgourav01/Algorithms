@@ -6,7 +6,7 @@ class Solution {
       int   low=0;
       int  high=n-1;
         while(low<=high){
-            mid=(low+high)/2;
+            mid=(low+high)/2;   //  to avoid overflow use :  mid=low+((high-low)/2);
             if(arr[mid]==k)return mid;
             else if(arr[mid]<k) low=mid+1;
             else high=mid-1 ;
