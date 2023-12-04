@@ -1,0 +1,39 @@
+public class MyQuicksort {
+/* IN QUICK SORT WE TAKE A PIVOT AND THEN  PUSH THE PIVOT TO ITS CORRECT POSITION 
+ * WHICH RESULT IN THAT EVERY THING IN RIGHT TO PIVOT IS GREATER AND THINGS ON THE LEFT ARE SMALLER
+ * SO WE PERFORM SAME TECHNIQUE RECURSIVELY ON ITS LEFT AND RIGHT HYPOTHETICAL ARRAYS .
+ * WORST TIME COMPLEXITY=N2
+ * AVERAGE TIME COMPLEXITY =N-LOGN
+ * BEST CASE COMPLEXITY = N-LOGN
+  */
+	public static  void qs(int arr[],int low,int high) {
+		if(low<high) {
+			int p=partition(arr,low,high);
+			qs(arr,low,p-1);
+			qs(arr,p+1,high);
+		}
+	}
+	public static int partition(int  arr[],int low,int high) {
+		int pivot=arr[low];
+		int i=low;
+		int j=high;
+		while(i<j) {
+			while(arr[i]<=pivot &&i<=high-1)i++;
+			while(arr[j]>pivot&&j>=low+1)j--;
+			if(j>i) {
+				int temp=arr[i];
+			    arr[i]=arr[j];
+			    arr[j]=temp;
+			}
+		}
+		arr[low]=arr[j];
+		arr[j]=pivot;
+		return j;
+	}
+
+public static void main(String []args) {
+	int []arr= {4,20,5,9,7,3,2};
+	qs(arr,0,arr.length-1);
+	for(int i:arr) System.out.print(i);
+	
+}}
